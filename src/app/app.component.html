@@ -1,2 +1,4 @@
-<estilo></estilo>
-<router-outlet></router-outlet>
+<div [ngClass]="{'bg-dark': oscuro === true}">
+    <estilo (establecerOscuro)="cambiarEstilo($event)"></estilo>
+    <router-outlet></router-outlet>
+</div>

@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PMDMO-Practica_Final_Blog_de_Noticias';
+  
+  oscuro: Boolean;
+
+  constructor() {
+    this.oscuro = false;
+  }
+
+  cambiarEstilo(oscuroEvento: Boolean){
+    console.log(oscuroEvento);
+    this.oscuro = oscuroEvento;
+  }
+
 }
