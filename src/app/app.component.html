@@ -1,4 +1,4 @@
-<div [ngClass]="{'bg-dark': oscuro === true}">
-    <estilo (establecerOscuro)="cambiarEstilo($event)"></estilo>
+<div class="contenedor" [ngClass]="[ (oscuro) ? 'bg-dark' : 'bg-secondary' ]">
+    <estilo [oscuro]="oscuro" (establecerOscuro)="cambiarOscuro()"></estilo>
     <router-outlet></router-outlet>
 </div>

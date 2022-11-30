@@ -1,20 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstiloComponent } from './componentes/estilo/estilo.component';
 import { LogInComponent } from './componentes/log-in/log-in.component';
+import { BlogNoticiasComponent } from './componentes/blog-noticias/blog-noticias.component';
+import { FormNoticiaComponent } from './componentes/blog-noticias/form-noticia/form-noticia.component';
+import { NoticiaComponent } from './componentes/blog-noticias/noticia/noticia.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EstiloComponent,
-    LogInComponent
+    LogInComponent,
+    BlogNoticiasComponent,
+    FormNoticiaComponent,
+    NoticiaComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

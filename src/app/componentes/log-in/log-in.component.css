@@ -13,3 +13,7 @@
     height: 100%;
   }
 }
+button{
+  padding-left: 2.5rem; 
+  padding-right: 2.5rem;
+}

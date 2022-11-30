@@ -1,0 +1,9 @@
+img.alineadoTextoImagenCentro{
+    vertical-align: middle;
+    /* Ojo vertical-align: text-middle no existe*/
+}
+
+img{
+    width: 31px;
+    height: auto;
+}

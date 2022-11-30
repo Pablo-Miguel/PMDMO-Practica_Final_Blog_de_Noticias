@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioService } from './modelo/servicio.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,13 @@ export class AppComponent {
   
   oscuro: Boolean;
 
-  constructor() {
+  constructor(public servicio: ServicioService) {
     this.oscuro = false;
   }
 
-  cambiarEstilo(oscuroEvento: Boolean){
-    console.log(oscuroEvento);
-    this.oscuro = oscuroEvento;
+  cambiarOscuro(){
+    this.oscuro = !this.oscuro;
+    this.servicio.cambiarOscuro$();
   }
 
 }

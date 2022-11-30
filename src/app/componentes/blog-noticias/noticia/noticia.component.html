@@ -1,0 +1,5 @@
+<div class="card card-block col-auto p-3 mt-2">
+    <h4 class="card-title">{{noticia.getTitulo()}}</h4>
+    <p class="card-text">{{noticia.getNoticia()}}</p>
+    <a class="btn" (click)="eliminarNoticia()" [ngClass]="[ (servicio.getOscuro$() | async) ? 'btn-danger' : 'btn-primary']">Borrar</a>
+</div>

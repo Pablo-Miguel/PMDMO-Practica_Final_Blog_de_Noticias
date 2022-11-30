@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'estilo',
@@ -7,18 +7,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class EstiloComponent implements OnInit {
 
-  @Output() establecerOscuro: EventEmitter<Boolean>;
-
-  oscuro: Boolean;
+  @Input() oscuro!: Boolean;
+  @Output() establecerOscuro: EventEmitter<null>;
 
   constructor() { 
-    this.oscuro = false;
-    this.establecerOscuro = new EventEmitter<Boolean>();
+    this.establecerOscuro = new EventEmitter<null>();
   }
 
   cambiarOscuro(){
-    this.oscuro = !this.oscuro;
-    this.establecerOscuro.emit(this.oscuro);
+    this.establecerOscuro.emit();
   }
 
   ngOnInit(): void {
