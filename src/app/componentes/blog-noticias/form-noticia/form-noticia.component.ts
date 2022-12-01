@@ -12,23 +12,23 @@ import { ServicioService } from 'src/app/modelo/servicio.service';
 export class FormNoticiaComponent implements OnInit {
 
   frmBlogNoticias!: FormGroup;
-  frmTitulo!: FormControl;
-  frmNoticia!: FormControl;
+  title!: FormControl;
+  noticie!: FormControl;
 
   constructor(public servicioNoticias: ServicioNoticiasService, public servicio: ServicioService) { }
 
   ngOnInit(): void {
-    this.frmTitulo = new FormControl('', [Validators.required]);
-    this.frmNoticia = new FormControl('', [Validators.required]);
+    this.title = new FormControl('', [Validators.required]);
+    this.noticie = new FormControl('', [Validators.required]);
     
     this.frmBlogNoticias = new FormGroup({
-      user: this.frmTitulo,
-      pass: this.frmNoticia
+      title: this.title,
+      noticie: this.noticie
     });
   }
 
   anadirNoticia(){
-    this.servicioNoticias.anadirNoticia(this.frmTitulo.value, this.frmNoticia.value);
+    this.servicioNoticias.anadirNoticia(this.title.value, this.noticie.value);
     this.frmBlogNoticias.reset();
   }
 

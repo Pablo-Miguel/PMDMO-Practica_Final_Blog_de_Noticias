@@ -15,7 +15,7 @@ export class ServicioService {
 
   constructor() {
     this.oscuro = false;
-    this.listaUsuarios = [{user: "pablomiguel", pass: "1234"}, {user: "marta", pass: "1234"}, {user: "manu", pass: "1234"}, {user: "admin", pass: "admin"}]
+    this.listaUsuarios = [{user: "pablomiguel", pass: "12345678"}, {user: "marta", pass: "12345678"}, {user: "manu", pass: "12345678"}, {user: "admin", pass: "12345678"}]
     this.sesion$ = new BehaviorSubject<Boolean>(false);
     this.oscuro$ = new BehaviorSubject<Boolean>(this.oscuro);
     this.listaUsuarios$ = new BehaviorSubject<{ user: string; pass: string; }[]>(this.listaUsuarios);
@@ -39,7 +39,7 @@ export class ServicioService {
   }
 
   setAutentificado(value: Boolean){
-    this,this.sesion$.next(value);
+    this.sesion$.next(value);
   }
 
 }

@@ -14,8 +14,8 @@ export class LogInComponent implements OnInit {
 
   listaUsuarios!: {user: string, pass: string}[];
   frmInicioSesion!: FormGroup;
-  frmUser!: FormControl;
-  frmPass!: FormControl;
+  user!: FormControl;
+  pass!: FormControl;
 
   constructor(public servicio: ServicioService, private router: Router) { 
     servicio.getListaUsuarios$().subscribe(mockList => this.listaUsuarios = mockList);
@@ -23,10 +23,10 @@ export class LogInComponent implements OnInit {
 
   comprobarUsuario(){
     this.listaUsuarios.forEach(usuario => {
-      if(true){ // usuario.user === this.frmUser.value
-        if(true){ // usuario.pass === this.frmPass.value
+      if(usuario.user === this.user.value){
+        if(usuario.pass === this.pass.value){ 
           this.servicio.setAutentificado(true);
-          this.router.navigate(['/blognoticias']);
+          this.router.navigate(['/blog_noticias']);
         } else {
           console.log("Contraseña incorrecta");
         }
@@ -35,12 +35,12 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.frmUser = new FormControl('', [Validators.required]);
-    this.frmPass = new FormControl('', [Validators.required, Validators.minLength(8)]);
+    this.user = new FormControl('', [Validators.required]);
+    this.pass = new FormControl('', [Validators.required, Validators.minLength(8)]);
     
     this.frmInicioSesion = new FormGroup({
-      user: this.frmUser,
-      pass: this.frmPass
+      user: this.user,
+      pass: this.pass
     });
   }
 

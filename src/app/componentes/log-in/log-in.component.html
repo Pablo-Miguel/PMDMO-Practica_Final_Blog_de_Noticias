@@ -28,11 +28,10 @@
                   id="form3Example3"
                   class="form-control form-control-lg bg-white"
                   placeholder="Introduzca un usuario"
-                  [ngClass]="{'border border-2 border-danger':  frmUser.invalid && frmUser.dirty, 'border border-2 border-success':  frmUser.valid && frmUser.dirty}"
-                  formControlName="frmUser"/>
+                  formControlName="user"/>
                 <label class="form-label" for="form3Example3">Usuario</label>
-                <div class="form-control-feedback" *ngIf="frmUser.errors && (frmUser.dirty || frmUser.touched)">
-                  <p *ngIf="frmUser.hasError('required')" class="text-danger">El usuario es obligatorio</p>
+                <div class="form-control-feedback" *ngIf="user.errors && (user.dirty || user.touched)">
+                  <p *ngIf="user.hasError('required')" class="text-danger">El usuario es obligatorio</p>
                 </div>
               </div>
 
@@ -43,12 +42,11 @@
                   id="form3Example4"
                   class="form-control form-control-lg bg-white"
                   placeholder="Introduzca contraseña"
-                  [ngClass]="{'border border-2 border-danger':  frmPass.invalid && frmPass.dirty, 'border border-2 border-success':  frmPass.valid && frmPass.dirty}"
-                  formControlName="frmPass"/>
+                  formControlName="pass"/>
                 <label class="form-label" for="form3Example4">Contraseña</label>
-                <div class="form-control-feedback" *ngIf="frmPass.errors && (frmPass.dirty || frmPass.touched)">
-                  <p *ngIf="frmPass.hasError('required')" class="text-danger">La contraseña es obligatoria</p>
-                  <p *ngIf="frmPass.hasError('minLength')" class="text-danger">La contraseña debe tener al menos 8 caracteres</p>
+                <div class="form-control-feedback" *ngIf="pass.errors && (pass.dirty || pass.touched)">
+                  <p *ngIf="pass.hasError('required')" class="text-danger">La contraseña es obligatoria</p>
+                  <p *ngIf="pass.hasError('minlength')" class="text-danger">La contraseña debe tener al menos 8 caracteres</p>
                 </div>
               </div>
               
@@ -61,7 +59,7 @@
                   ]"
                   type="button"
                   class="btn btn-lg"
-                  [disabled]="false"
+                  [disabled]="frmInicioSesion.invalid"
                   (click)="comprobarUsuario()">
                   Login
                 </button>

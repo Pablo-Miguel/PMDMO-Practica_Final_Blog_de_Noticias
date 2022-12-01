@@ -11,7 +11,7 @@ export class SesionGuard implements CanActivate {
   sesion!: Boolean;
 
   constructor( private router: Router, private servicio: ServicioService) { 
-    servicio.isAutentificado$().subscribe(auth => this.sesion = auth);
+    this.servicio.isAutentificado$().subscribe(auth => this.sesion = auth);
   }
 
   canActivate(

@@ -7,3 +7,7 @@ img{
     width: 31px;
     height: auto;
 }
+
+nav{
+    position: fixed;
+}

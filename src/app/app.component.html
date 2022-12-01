@@ -1,4 +1,4 @@
-<div class="contenedor" [ngClass]="[ (oscuro) ? 'bg-dark' : 'bg-secondary' ]">
+<body [ngClass]="[ (oscuro) ? 'bg-dark' : 'bg-secondary' ]">
     <estilo [oscuro]="oscuro" (establecerOscuro)="cambiarOscuro()"></estilo>
     <router-outlet></router-outlet>
-</div>
+</body>

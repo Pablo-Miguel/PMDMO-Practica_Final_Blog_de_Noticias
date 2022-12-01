@@ -7,11 +7,11 @@
         type="text"
         class="form-control"
         placeholder="Introduzca el titular de la noticia"
-        [ngClass]="{'border border-2 border-danger':  frmTitulo.invalid && frmTitulo.dirty, 'border border-2 border-success':  frmTitulo.valid && frmTitulo.dirty}"
-        FormControlName="frmTitulo"
+        [ngClass]="{'border border-2 border-danger':  title.invalid && title.dirty, 'border border-2 border-success':  title.valid && title.dirty}"
+        formControlName="title"
       />
-      <div class="form-control-feedback" *ngIf="frmTitulo.errors && (frmTitulo.dirty || frmTitulo.touched)">
-        <p *ngIf="frmTitulo.errors['required']" class="text-danger">El titulo es obligatorio</p>
+      <div class="form-control-feedback" *ngIf="title.errors && (title.dirty || title.touched)">
+        <p *ngIf="title.errors['required']" class="text-danger">El titulo es obligatorio</p>
       </div>
     </div>
     <div class="form-group mt-2" (keypress)="pulsaTecla($event)">
@@ -20,14 +20,14 @@
         type="text"
         class="form-control"
         placeholder="Introduzca la noticia"
-        rows="10"
-        [ngClass]="{'border border-2 border-danger':  frmNoticia.invalid && frmNoticia.dirty, 'border border-2 border-success':  frmNoticia.valid && frmNoticia.dirty}"
-        FormControlName="frmNoticia"
+        rows="3"
+        [ngClass]="{'border border-2 border-danger':  noticie.invalid && noticie.dirty, 'border border-2 border-success':  noticie.valid && noticie.dirty}"
+        formControlName="noticie"
       ></textarea>
-      <div class="form-control-feedback" *ngIf="frmNoticia.errors && (frmNoticia.dirty || frmNoticia.touched)">
-        <p *ngIf="frmNoticia.errors['required']" class="text-danger">La noticia es obligatoria</p>
+      <div class="form-control-feedback" *ngIf="noticie.errors && (noticie.dirty || noticie.touched)">
+        <p *ngIf="noticie.errors['required']" class="text-danger">La noticia es obligatoria</p>
       </div>
     </div>
-    <button type="button" class="btn btn-primary mt-2" (click)="anadirNoticia()" [disabled]="false" [ngClass]="[ (servicio.getOscuro$() | async) ? 'btn-danger' : 'btn-primary']">Crear</button>
+    <button type="button" class="btn btn-primary mt-2" (click)="anadirNoticia()" [disabled]="frmBlogNoticias.invalid" [ngClass]="[ (servicio.getOscuro$() | async) ? 'btn-danger' : 'btn-primary']">Crear</button>
   </div>
 </form>
