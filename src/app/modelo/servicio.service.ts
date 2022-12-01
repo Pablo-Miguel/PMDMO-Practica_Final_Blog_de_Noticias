@@ -41,5 +41,16 @@ export class ServicioService {
   setAutentificado(value: Boolean){
     this.sesion$.next(value);
   }
+  
+  comprobarUsuario(user: string, pass: string): Boolean{
+    
+    for(let i = 0; i < this.listaUsuarios.length; i++){
+      if(this.listaUsuarios[i].user == user && this.listaUsuarios[i].pass == pass) {
+        return true;
+      }
+    }
 
+    return false;
+
+  }
 }

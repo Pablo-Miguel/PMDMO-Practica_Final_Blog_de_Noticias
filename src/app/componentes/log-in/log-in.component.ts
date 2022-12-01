@@ -12,35 +12,23 @@ export class LogInComponent implements OnInit {
 
   @Input() oscuro!: Boolean;
 
-  mensaje!: String
   flag: Boolean;
-  listaUsuarios!: {user: string, pass: string}[];
   frmInicioSesion!: FormGroup;
   user!: FormControl;
   pass!: FormControl;
 
   constructor(public servicio: ServicioService, private router: Router) { 
     this.flag = false;
-    servicio.getListaUsuarios$().subscribe(mockList => this.listaUsuarios = mockList);
   }
 
   comprobarUsuario(){
-    this.listaUsuarios.forEach(usuario => {
-      console.log("User: " + usuario.user.toLowerCase());
-      console.log("Form: " + this.user.value.toLowerCase());
-      if(usuario.user.toLowerCase() == this.user.value.toLowerCase()){
-        if(usuario.pass == this.pass.value){ 
-          this.servicio.setAutentificado(true);
-          this.router.navigate(['/blog_noticias']);
-        } else {
-          this.mensaje = "Usuario o contraseña incorrecto";
-          this.flag = true;
-        }
-      } else {
-        this.mensaje = "No existe el usuario";
-        this.flag = true;
-      }
-    });
+    if(this.servicio.comprobarUsuario(this.user.value, this.pass.value)){
+      this.flag = false;
+      this.servicio.setAutentificado(true);
+      this.router.navigate(['/blog_noticias']);
+    } else {
+      this.flag = true;
+    }
   }
 
   ngOnInit(): void {

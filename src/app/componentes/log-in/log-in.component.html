@@ -51,7 +51,7 @@
               </div>
               
               <div class="text-center text-lg-start mt-4 pt-2">
-                <p *ngIf="flag" class="text-danger">{{mensaje}}</p>
+                <p *ngIf="flag" class="text-danger">Usuario o contraseña incorrecto</p>
                 <button
                   [ngClass]="[
                     (servicio.getOscuro$() | async)

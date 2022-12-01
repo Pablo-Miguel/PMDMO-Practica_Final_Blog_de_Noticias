@@ -1,5 +1,5 @@
 <div class="card card-block col-auto p-3 mt-2">
-    <h4 class="card-title">{{noticia.getTitulo()}}</h4>
+    <h4 class="card-title">{{noticia.getTitulo()|upperText}}</h4>
     <p class="card-text">{{noticia.getNoticia()}}</p>
     <a class="btn me-2" [routerLink]="['/detalle_noticia', noticia.getId()]" [ngClass]="[ (servicio.getOscuro$() | async) ? 'btn-danger' : 'btn-primary']">Detalle</a>
     <a class="btn" (click)="eliminarNoticia()" [ngClass]="[ (servicio.getOscuro$() | async) ? 'btn-danger' : 'btn-primary']">Borrar</a>
