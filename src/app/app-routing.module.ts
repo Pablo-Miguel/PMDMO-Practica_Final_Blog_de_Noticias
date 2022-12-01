@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LogInComponent},
   {path: 'blog_noticias', component: BlogNoticiasComponent, canActivate: [SesionGuard]},
-  {path: 'detalle_noticia/:id', component: DetalleNoticiaComponent, canActivate: [SesionGuard]}
+  {path: 'detalle_noticia/:id', component: DetalleNoticiaComponent, canActivate: [SesionGuard]},
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
