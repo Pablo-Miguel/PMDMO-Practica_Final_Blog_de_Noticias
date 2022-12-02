@@ -11,14 +11,18 @@ import { ServicioNoticiasService } from 'src/app/modelo/servicio-noticias.servic
 export class DetalleNoticiaComponent implements OnInit {
 
   id!: Number;
-  noticia: Noticia;
+  noticia!: Noticia;
 
   constructor(public servicioNoticia: ServicioNoticiasService, public activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(params => this.id = parseInt(params['id']));
-    this.noticia = servicioNoticia.getNoticia(this.id);
+    
   }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.id = parseInt(params['id'])
+      this.noticia = this.servicioNoticia.getNoticia(this.id)
+    });
+    console.log(this.id)
   }
 
 }
